@@ -8,7 +8,7 @@ describe "user deletes an article" do
     end
     
     it "displays all articles without the deleted entry" do
-      visit article_path(article_1)
+      visit article_path(@article_1)
       click_link "Delete"
 
       expect(current_path).to eq(articles_path)
