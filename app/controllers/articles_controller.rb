@@ -29,6 +29,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article.update(article_params)
+    flash.notice = "Article '#{@article.title}' was Updated!"
     redirect_to article_path(@article)
   end
 
