@@ -29,6 +29,7 @@ describe "user sees one article" do
       click_on "Submit"
 
       expect(current_path).to eq(article_path(@article_1))
+      expect(page).to have_content("Comments: (#{@article_1.comments.size})")
       expect(page).to have_content("Post a Comment")
       expect(page).to have_content("ME!")
       expect(page).to have_content("Super amazing content, like, for real.")
