@@ -20,5 +20,18 @@ describe "user sees one article" do
       expect(page).to have_content(@comment_2.author_name)
       expect(page).to have_content(@comment_2.body)
     end
+
+    it 'they can fill out a comment form which displays on the article show page' do
+      visit article_path(@article_1)
+
+      fill_in "comment[author_name]", with: "ME!"
+      fill_in "comment[body]", with: "Super amazing content, like, for real."
+      click_on "Submit"
+
+      expect(current_path).to eq(article_path(article))
+      expect(page).to have_content("Post a Comment")
+      expect(page).to have_content("ME!")
+      expect(page).to have_content("Super amazing content, like, for real.")
+    end
   end
 end
