@@ -5,7 +5,7 @@
 
 <h3>Comments: (<%= @article.comments.size %>)</h3>
 
-# sending a collection to our partial tells it to render the partial for each element in the collection
+<!--sending a collection to our partial tells it to render the partial for each element in the collection -->
 <%= render partial: 'articles/comment', collection: @article.comments.reverse %>
 
 <%= render partial: 'comments/form' %>
