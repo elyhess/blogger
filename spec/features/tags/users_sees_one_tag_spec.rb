@@ -19,7 +19,6 @@ describe "user sees one tag link" do
 
       expect(page).to have_content("Articles Tagged with #{@tag.name}")
       expect(page).to have_content(@article_1.title)
-      save_and_open_page
     end
   end
 end
