@@ -7,7 +7,8 @@ class ArticlesController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comment.article_id = @article.id
+    # This doesn't appear to be needed??
+    # @comment.article_id = @article.id
   end
 
   def new

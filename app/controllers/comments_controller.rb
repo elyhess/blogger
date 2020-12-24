@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   def create
+    # Where does article_id param come from????
     @comment = Comment.new(comment_params)
     @comment.article_id = params[:article_id]
   
