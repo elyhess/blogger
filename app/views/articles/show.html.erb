@@ -1,6 +1,16 @@
 <h1><%= @article.title %></h1>
+
+<p>
+  Tags:
+  <% @article.tags.each do |tag| %>
+    <%= tag.name %>
+  <% end %>
+</p>
+
 <p><%= @article.body %></p>
+
 <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %>
+
 <%= link_to "edit", edit_article_path(@article) %>
 
 <h3>Comments: (<%= @article.comments.size %>)</h3>
