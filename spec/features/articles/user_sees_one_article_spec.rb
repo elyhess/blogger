@@ -37,9 +37,5 @@ describe "user sees one article" do
       expect(page).to have_content("ME!")
       expect(page).to have_content("Super amazing content, like, for real.")
     end
-
-    it 'they can click on a tag link and have ' do
-      
-    end
   end
 end
