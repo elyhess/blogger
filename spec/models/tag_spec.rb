@@ -10,6 +10,13 @@ RSpec.describe Tag, type: :model do
   end
 
   describe 'instance methods' do
+    it '#to_s' do
+      article = Article.create(title: "Tall Tables", body: "They are tough for the short legged")
+      article.tags.create(name: "furniture")
+      article.tags.create(name: "opinions")
+
+      expect(Tag.first.to_s).to eq("furniture")
+    end
   end
 
   describe 'class methods' do
