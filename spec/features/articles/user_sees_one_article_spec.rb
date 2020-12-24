@@ -6,6 +6,8 @@ describe "user sees one article" do
       @article_1 = Article.create!(title: "New Title", body: "New Body")
       @comment_1 = @article_1.comments.create!(author_name: "Me", body: "Commenty comments")
       @comment_2 = @article_1.comments.create!(author_name: "You", body: "So much to say")
+      @tag = Tag.create!(name: "Name")
+      @tagging = Tagging.create!(article_id: @article_1.id, tag_id: @tag.id)
     end
 
     it "displays information for one article" do
@@ -19,6 +21,7 @@ describe "user sees one article" do
       expect(page).to have_content(@comment_1.body)
       expect(page).to have_content(@comment_2.author_name)
       expect(page).to have_content(@comment_2.body)
+      expect(page).to have_link(@tag.name)
     end
 
     it 'they can fill out a comment form which displays on the article show page' do
