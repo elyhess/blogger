@@ -19,5 +19,14 @@ describe "As a user" do
       expect(page).to have_content(@tag.name)
       expect(page).to have_content(@tag2.name)
     end
+
+    it 'I can delete a tag' do
+      visit tags_path
+
+      all(:link, 'Delete')[0].click
+
+      expect(page).to_not have_content(@tag.name)
+      expect(page).to have_content(@tag2.name)
+    end
   end
 end
