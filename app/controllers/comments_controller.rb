@@ -1,6 +1,12 @@
 class CommentsController < ApplicationController
   def create
-    # Where does article_id param come from????
+    # Q: Where does article_id param come from????
+
+    # A: Forms with models will default to using the restful routes. 
+    # When you have two models, it creates nested routes, 
+    # in this case /articles/:article_id/comments . 
+    # So the param is actually being passed through a dynamic segment in the route
+    
     @comment = Comment.new(comment_params)
     @comment.article_id = params[:article_id]
   
