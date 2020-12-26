@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :require_login, except: [:create]
+
   def create
     # Q: Where does article_id param come from????
 
